@@ -1,24 +1,31 @@
 module.exports = (sequelize, DataTypes) => {
-    const Games = sequelize.define('games', {
-    
+    const FavGames = sequelize.define('favGame', {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-           
         },
-        genre:{
+        genre: {
             type: DataTypes.STRING,
-            allowNull: false
-            
+            allowNull: false,
         },
-        year: {
+        year:{
+            type: DataTypes.INTEGER,
+            allowNull:false
+            },
+        publisher: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        Rank: {
             type: DataTypes.INTEGER,
             allowNull:false
         },
-        publisher: {
+        owner:{
             type: DataTypes.INTEGER,
             allowNull:false
         }
+      
     })
-    return Games;
+
+    return FavGames;
 }

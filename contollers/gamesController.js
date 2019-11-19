@@ -12,7 +12,7 @@ router.get('/',validateSession, (req, res) => {
         }))
 })
 
-
+ 
 
 // POST
 router.post('/', validateSession, (req, res) => {

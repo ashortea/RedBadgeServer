@@ -10,8 +10,7 @@ router.post('/signup', (req, res) => {
     User.create({
         userName: req.body.userName,
         password: bcrypt.hashSync(req.body.password, 10),
-        role: newUser.role,
-        created_at: created_at
+        role: newUser.role
     })
     .then(
         createSuccess = (user) => {
@@ -32,7 +31,7 @@ router.post('/signup', (req, res) => {
 router.post('/signin', (req, res) => {
     User.findOne ({
         where: {
-            email: req.body.email
+            userName: req.body.userName
         }
     })
     .then (user => {

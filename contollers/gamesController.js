@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Games = require('../db').import('../models/games.js');
+const Games = require('../db').import('../models/games');
 const validateSession =require('../middleware/validate-session')
 
 // GET ALL

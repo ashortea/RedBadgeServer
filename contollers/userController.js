@@ -30,14 +30,14 @@ router.post('/signup', (req, res) => {
 
 //signin
 router.post('/signin', (req, res) => {
-    User.findOne ({
+    db.users.findOne ({
         where: {
-            userName: req.body.userName
+            userName: loginUser.userName
         }
     })
     .then (user => {
         if(user){
-            bcrypt.compare(req.body.password, user.password, (err, matches) => {
+            bcrypt.compare(loginUser.password, user.password, (err, matches) => {
                 if(matches) {
                     let token = jwt.sign({ id: user.id}, process.env.JWT_SECRET, {
                         expireIn: 60*60*24

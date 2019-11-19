@@ -16,6 +16,7 @@ router.get('/',validateSession, (req, res) => {
 
 // POST
 router.post('/', validateSession, (req, res) => {
+    console.log(req)
     
     const gamesFromRequest = {
         name: req.body.name,
@@ -26,7 +27,8 @@ router.post('/', validateSession, (req, res) => {
 
     Games.create(gamesFromRequest)
         .then(game => res.status(200).json(game))
-        .catch(err => res.json(req.errors));
+        .catch(err => console.log(err));
+        
 })
 
 

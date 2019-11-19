@@ -1,12 +1,11 @@
-
 require('dotenv').config();
 //Express
 const express = require('express');
-const trails =express();
+const app =express();
 // Import Controller
 const user = require('./controllers/userController');
-const games = require('./controllers/gamesController');
-const favGames = require('./controllers/favGamesController');
+const games = require('./controllers/gamesController');//main list of games
+const favGames = require('./controllers/favGamesController');//favorites added by users
 //Database
 const sequelize = require('./db');
 sequelize.sync();
@@ -17,4 +16,4 @@ app.use('/auth', user);
 app.use('/games', games) //all games
 app.use(require('./middleware/validatesession'));
 //App Listen
-app.listen(process.env.PORT, () => console.log(`listening on ${process.env.PORT}`));
+app.listen(process.env.PORT, () => console.log(`listening on ${process.env.PORT}`));//port is 3000

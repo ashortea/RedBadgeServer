@@ -11,7 +11,7 @@ const sequelize = require('./db');
 sequelize.sync();
 app.use(require('./middleware/headers'));
 app.use(express.json());
-//Routes
+//Routes/
 app.use('/auth', user);
 app.use('/games', games) //all games
 app.use('/fav', favGames)//all favGames

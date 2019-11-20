@@ -3,12 +3,12 @@ require('dotenv').config();
 const express = require('express');
 const app =express();
 // Import Controller
-const user = require('./contollers/userController');
-const games = require('./contollers/gamesController');//main list of games
-const favGames = require('./contollers/favGamesContoller');//favorites added by users
+const user = require('./controllers/userController');
+const games = require('./controllers/gamesController');//main list of games
+const favGames = require('./controllers/favGamesController');//favorites added by users
 //Database
 const sequelize = require('./db');
-sequelize.sync();
+sequelize.sync({force: true});
 app.use(require('./middleware/headers'));
 app.use(express.json());
 //Routes

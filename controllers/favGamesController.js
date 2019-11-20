@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const favGames = require('../db').import('../models/favGames.js');
+
 const validateSession =require('../middleware/validate-session')
+
 
 // GET ALL
 router.get('/',validateSession, (req, res) => { 
@@ -14,7 +16,7 @@ router.get('/',validateSession, (req, res) => {
 
 // POST
 router.post('/', validateSession, (req, res) => {
-    console.log(req.user)
+
     const favGamesFromRequest = {
         name: req.body.name,
         genre: req.body.genre,
@@ -26,10 +28,11 @@ router.post('/', validateSession, (req, res) => {
     }
 
     favGames.create(favGamesFromRequest)
-        .then(favGame => res.status(200).json(favGame))
+
         .catch(err => res.status(500).json({
             error: err
         }))
+
 })
 
 // UPDATE BY ID

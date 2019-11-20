@@ -18,3 +18,4 @@ app.use('/fav', favGames)//all favGames
 app.use(require('./middleware/validate-session'));
 //App Listen
 app.listen(process.env.PORT, () => console.log(`listening on ${process.env.PORT}`));//port is 3000
+

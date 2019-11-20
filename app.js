@@ -8,7 +8,7 @@ const games = require('./controllers/gamesController');//main list of games
 const favGames = require('./controllers/favGamesController');//favorites added by users
 //Database
 const sequelize = require('./db');
-sequelize.sync();
+sequelize.sync({force: true});
 app.use(require('./middleware/headers'));
 app.use(express.json());
 //Routes

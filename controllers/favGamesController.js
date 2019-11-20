@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const favGames = require('../db').import('../models/favGames.js');
-const validateSession =require('../middleware/validate-session')
+const validateSession = require('../middleware/validate-session')
 
 // GET ALL
 router.get('/',validateSession, (req, res) => { 

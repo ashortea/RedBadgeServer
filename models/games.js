@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         publisher: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull:false
         }
     })
     return Games;

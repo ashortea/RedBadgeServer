@@ -14,19 +14,22 @@ router.get('/',validateSession, (req, res) => {
 
 // POST
 router.post('/', validateSession, (req, res) => {
-    
+    console.log(req.user)
     const favGamesFromRequest = {
         name: req.body.name,
         genre: req.body.genre,
         year: req.body.year,
         publisher: req.body.publisher,
+        rank: req.body.rank,
         comment: req.body.comment,
         owner: req.user.id
     }
 
     favGames.create(favGamesFromRequest)
         .then(favGame => res.status(200).json(favGame))
-        .catch(err => res.json(req.errors));
+        .catch(err => res.status(500).json({
+            error: err
+        }))
 })
 
 // UPDATE BY ID

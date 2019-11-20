@@ -16,10 +16,15 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        rank:{
+            type: DataTypes.INTEGER,
+            allowNull:false
+        },
         comment: {
             type: DataTypes.STRING,
             allowNull:false
         },
+    
         owner:{
             type: DataTypes.INTEGER,
             allowNull:false

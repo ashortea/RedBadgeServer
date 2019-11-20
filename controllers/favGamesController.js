@@ -21,6 +21,7 @@ router.post('/', validateSession, (req, res) => {
         year: req.body.year,
         publisher: req.body.publisher,
         comment: req.body.comment,
+        rank: req.body.rank,
         owner: req.user.id
     }
 

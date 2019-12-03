@@ -2,22 +2,22 @@ module.exports = (sequelize, DataTypes) => {
     const Games = sequelize.define('games', {
     
         name: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: DataTypes.STRING
+            
            
         },
         genre:{
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.STRING
+           
             
         },
         year: {
-            type: DataTypes.INTEGER,
-            allowNull:false
+            type: DataTypes.INTEGER
+            
         },
         publisher: {
-            type: DataTypes.STRING,
-            allowNull:false
+            type: DataTypes.STRING
+            
         }
     })
     return Games;

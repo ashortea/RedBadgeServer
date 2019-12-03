@@ -1,7 +1,8 @@
 module.exports = (sequelize, DataTypes) => {
     const Games = sequelize.define('games', {
-    
+
         name: {
+
             type: DataTypes.STRING
             
            
@@ -18,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
         publisher: {
             type: DataTypes.STRING
             
+
         }
     })
     return Games;

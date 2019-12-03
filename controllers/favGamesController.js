@@ -5,7 +5,7 @@ const validateSession =require('../middleware/validate-session')
 
 
 // GET ALL
-router.get('/',validateSession, (req, res) => { 
+router.get('/',(req, res) => { 
     
     favGames.findAll()
         .then(favGame => res.status(200).json(favGame))
@@ -15,16 +15,14 @@ router.get('/',validateSession, (req, res) => {
 })
 
 // POST
-router.post('/', validateSession, (req, res) => {
-
-    const favGamesFromRequest = {
+router.post('/',validateSession,(req, res) => {
+console.log(req.body)
+    const favGamesFromRequest = {  
+        // id: req.body.id,
         name: req.body.name,
         genre: req.body.genre,
         year: req.body.year,
         publisher: req.body.publisher,
-        rank: req.body.rank,
-        comment: req.body.comment,
-        rank: req.body.rank,
         owner: req.user.id
     }
 
@@ -37,7 +35,7 @@ router.post('/', validateSession, (req, res) => {
 })
 
 // UPDATE BY ID
-router.put('/:id',validateSession, (req, res) => {
+router.put('/:id',(req, res) => {
     favGames.update(req.body, {
         where: {
             id: req.params.id
@@ -50,7 +48,7 @@ router.put('/:id',validateSession, (req, res) => {
 })
 
 // DELETE BY ID
-router.delete('/:id',validateSession, (req, res) => {
+router.delete('/:id',(req, res) => {
     favGames.destroy({
         where: {
             id: req.params.id

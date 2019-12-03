@@ -8,16 +8,16 @@ module.exports = (sequelize, DataTypes) => {
         },
         genre: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
 
         },
         year: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
         },
         publisher: {
             type: DataTypes.STRING,
-            allowNull:false
+            allowNull:false,
         }
     })
     return Games;

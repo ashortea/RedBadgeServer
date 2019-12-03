@@ -11,8 +11,9 @@ const favGames = require('./controllers/favGamesController');//favorites added b
 //Database
 const sequelize = require('./db');
 
-sequelize.sync();
-app.use(cors());
+sequelize.sync({force: true});
+app.use(require('./middleware/headers'));
+
 app.use(express.json());
 app.use('/games', games) //all games
 app.use('/favs', favGames)//all favGames

@@ -15,7 +15,7 @@ router.get('/',validateSession, (req, res) => {
  
 
 // POST
-router.post('/', validateSession, (req, res) => {
+router.post('/',validateSession,  (req, res) => {
     console.log(req)
     
     const gamesFromRequest = {
@@ -34,7 +34,7 @@ router.post('/', validateSession, (req, res) => {
 
 
 // UPDATE BY ID
-router.put('/:id',validateSession, (req, res) => {
+router.put('/:id',validateSession,(req, res) => {
     Games.update(req.body, {
         where: {
             id: req.params.id
@@ -47,7 +47,7 @@ router.put('/:id',validateSession, (req, res) => {
 })
 
 // DELETE BY ID
-router.delete('/:id',validateSession, (req, res) => {
+router.delete('/:id',validateSession,(req, res) => {
     Games.destroy({
         where: {
             id: req.params.id

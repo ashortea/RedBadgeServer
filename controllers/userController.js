@@ -1,10 +1,9 @@
 const router = require('express').Router();
 const User = require('../db').import('../models/user');
-const db = require('../db')
+// const db = require('../db')
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
 
 //signup
 router.post('/signup', (req, res) => {
@@ -35,6 +34,7 @@ router.post('/signin', (req, res) => {
     User.findOne({
         where: {
             userName: req.body.userName
+            // role: req.body.role
         }
     })
     .then(user => {
@@ -58,6 +58,20 @@ router.post('/signin', (req, res) => {
         }
     }, err => res.status(501).send({error: 'failed to process'}))
 })
+
+
+// // DELETE BY ID
+// router.delete('/:id',validateSession, (req, res) => {
+//     User.destroy({
+//         where: {
+//             id: req.params.id
+//         }
+//     })
+//     .then(game => res.status(200).json(game))
+//     .catch(err => res.json({
+//         error: err
+//     }))
+// })
 
 //get
 // router.get('/users', (req, res) => {

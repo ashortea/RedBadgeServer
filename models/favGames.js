@@ -13,12 +13,15 @@ module.exports = (sequelize, DataTypes) => {
            
             },
         publisher: {
+
             type: DataTypes.STRING
             
+
         },
     
         owner:{
             type: DataTypes.INTEGER,
+            
            
         }
       
